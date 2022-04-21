@@ -1,0 +1,441 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-text h1 {
+  color: #d09a28;
+  font-size: 80px;
+  font-family: "Parisienne", cursive;
+  text-shadow: 2px 4px black;
+  font-weight: bold;
+}
+
+#navbar-section {
+  position: fixed;
+  padding: 10px 0;
+  z-index: 999999;
+}
+
+#navbar-section .nav-logo {
+  height: 100px;
+  width: auto;
+  margin-left: 20px;
+}
+
+.toggle-wrapper {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 999999;
+}
+
+.toggle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle span {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #d09a28;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.toggle span:nth-child(1) {
+  transform: translateY(-15px);
+  width: 25px;
+  left: 10px;
+}
+
+.toggle.active span:nth-child(1) {
+  width: 30px;
+  transform: translateY(0px) rotate(45deg);
+  transition-delay: 0.125s;
+}
+
+.toggle span:nth-child(2) {
+  transform: translateY(15px);
+  width: 15px;
+  left: 10px;
+}
+
+.toggle.active span:nth-child(2) {
+  width: 30px;
+  transform: translateY(0px) rotate(315deg);
+  transition-delay: 0.25s;
+}
+
+.toggle.active span:nth-child(3) {
+  transform: translateX(60px);
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.navigation.active {
+  visibility: visible;
+}
+
+.navigation span {
+  position: absolute;
+  top: -100%;
+  left: calc(25% * var(--i));
+  width: 25%;
+  /* background-color: #000; */
+  height: 100%;
+  transition: 0.25s;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  transition-delay: calc(0.25s * var(--i));
+}
+
+.navigation span:first-child,
+.navigation span:nth-child(2),
+.navigation span:nth-child(3),
+.navigation span:nth-child(4) {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.navigation span:first-child {
+  background-image: url("../images/nav-img-1.jpeg");
+}
+
+.navigation span:nth-child(2) {
+  background-image: url("../images/nav-img-2.jpeg");
+}
+
+.navigation span:nth-child(3) {
+  background-image: url("../images/nav-img-3.jpeg");
+}
+
+.navigation span:nth-child(4) {
+  background-image: url("../images/nav-img-4.jpeg");
+}
+
+.navigation.active span {
+  top: 0;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  transform: translateX(-100px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transition-delay: 0s;
+  color: #fff;
+  font-size: 3em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navigation.active ul {
+  transform: translateX(0px);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.75s;
+}
+
+.navigation ul li {
+  list-style: none;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation.active ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 20px;
+}
+
+.navigation.active ul li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+#events-section {
+  min-height: 50vh;
+  padding: 50px 0;
+  background-color: black;
+}
+
+h2 {
+  color: #d09a28;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 30px;
+  font-family: "Parisienne", cursive;
+}
+
+#events-section .event-wrapper {
+  width: 320px;
+  height: 300px;
+  margin: auto;
+}
+
+#events-section .wedding-event {
+  background-image: url("../images/couples/simrandeep&mehak/4T5A4000.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#events-section .wedding-event::before {
+  content: "";
+  color: #d09a28;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color: black; */
+}
+
+#events-section .pre-wedding-event {
+  background-image: url("../images/couples/komal&prashant/558A8756-2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#events-section .engagement-event {
+  background-image: url("../images/couples/simrandeep&mehak/6O2A2589-2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#events-section .mehendi-event {
+  background-image: url("../images/couples/simrandeep&mehak/558A3136.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#swiper-card-section {
+  background-color: #000;
+  min-height: 70vh;
+}
+
+#swiper-card-section .swiper {
+  width: 240px;
+  height: 320px;
+  margin: 50px auto;
+}
+
+#swiper-card-section .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(1n) {
+  background-image: url("../images/couples/komal&prashant/4T5A2739.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(2n) {
+  background-image: url("../images/couples/komal&prashant/4T5A3075.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(3n) {
+  background-image: url("../images/couples/komal&prashant/558A8551.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(4n) {
+  background-image: url("../images/couples/komal&prashant/558A8566.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(5n) {
+  background-image: url("../images/couples/komal&prashant/558A8756-2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(6n) {
+  background-image: url("../images/couples/komal&prashant/558A8758-2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(7n) {
+  background-image: url("../images/couples/komal&prashant/4T5A2446.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(8n) {
+  background-image: url("../images/couples/komal&prashant/4T5A2775.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(9n) {
+  background-image: url("../images/couples/komal&prashant/4T5A3199.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .komal-prashant .swiper-slide:nth-child(10n) {
+  background-image: url("../images/couples/komal&prashant/4T5A2481.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(1n) {
+  background-image: url("../images/couples/simrandeep&mehak/4T5A4003.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(2n) {
+  background-image: url("../images/couples/simrandeep&mehak/4T5A4000.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(3n) {
+  background-image: url("../images/couples/simrandeep&mehak/4T5A3857.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(4n) {
+  background-image: url("../images/couples/simrandeep&mehak/4T5A3515.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(5n) {
+  background-image: url("../images/couples/simrandeep&mehak/6O2A2608.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(6n) {
+  background-image: url("../images/couples/simrandeep&mehak/6O2A2299-2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(7n) {
+  background-image: url("../images/couples/simrandeep&mehak/558A2035.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(8n) {
+  background-image: url("../images/couples/simrandeep&mehak/558A2627.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(9n) {
+  background-image: url("../images/couples/simrandeep&mehak/558A3136.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(10n) {
+  background-image: url("../images/couples/simrandeep&mehak/6O2A2589-2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#swiper-slider-section {
+  background-color: #000;
+  min-height: 100vh;
+}
+
+#swiper-slider-section .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#swiper-slider-section .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 550px;
+  height: 300px;
+}
+
+#swiper-slider-section .swiper-slide .youtube-video {
+  width: 100%;
+  height: 100%;
+}
+
+#swiper-slider-section .swiper-slide img {
+  display: block;
+  width: 100%;
+}
