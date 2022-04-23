@@ -1,0 +1,37 @@
+@media (max-width: 426px) {
+  .carousel-text h1 {
+    font-size: 50px;
+    color: white;
+  }
+  #swiper-slider-section .swiper-slide {
+    width: 420px;
+  }
+
+  .toggle-wrapper {
+    top: 20px;
+  }
+
+  #navbar-section {
+    padding: 10px 0;
+  }
+
+  #navbar-section .nav-logo {
+    height: 80px;
+  }
+
+  .navigation ul {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 380px) {
+  #swiper-slider-section .swiper-slide {
+    width: 360px;
+  }
+}
+
+@media (max-width: 340px) {
+  #swiper-slider-section .swiper-slide {
+    width: 320px;
+  }
+}

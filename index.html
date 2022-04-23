@@ -6,28 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
 
+    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 
+    <!-- SWIPER JS -->
     <link rel="stylesheet" href="plugins/Swiper/swiper-bundle.min.css">
 
+    <!-- LIGHTBOX -->
     <link rel="stylesheet" href="plugins/lightbox2-2.11.3/src/css/lightbox.css">
 
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
+    <!-- ANIMATE ON SCROLL -->
     <link rel="stylesheet" href="plugins/aos-master/dist/aos.css">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
     <title>Memory Crafters</title>
 </head>
 
 <body>
-    <section id="navbar-section">
+    <section id="navbar-section" class="">
         <div class="navbar-logo">
             <img class="nav-logo" src="images/logo/MC.png" alt="">
         </div>
@@ -200,11 +212,11 @@
 
     <section id="swiper-slider-section">
         <div class="container-fluid p-0">
+            <h2>Cinematics Shots</h2>
             <div class="row">
                 <div class="col-12">
                     <!-- Swiper -->
-                    <div class="swiper mySwiper" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-                        data-aos-delay="200">
+                    <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <iframe class="youtube-video" src="https://www.youtube.com/embed/v-Fi1rReDCE"
@@ -219,31 +231,57 @@
                                     allowfullscreen></iframe>
                             </div>
                             <div class="swiper-slide">
+                                <iframe class="youtube-video" src="https://www.youtube.com/embed/v3fZ2T9RVdY"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="swiper-slide">
+                                <iframe class="youtube-video" src="https://www.youtube.com/embed/Ism96BpvsGc"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="swiper-slide">
+                                <iframe class="youtube-video" src="https://www.youtube.com/embed/tYGNq7F26lk"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="swiper-slide">
                                 <iframe class="youtube-video" src="https://www.youtube.com/embed/W_bnJL80nHA"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                             </div>
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                <iframe class="youtube-video" src="https://www.youtube.com/embed/wfkl1uU-XyY"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                <iframe class="youtube-video" src="https://www.youtube.com/embed/56LSYwbq0A0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                <iframe class="youtube-video" src="https://www.youtube.com/embed/UQfaPjOmgws"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="navigation-btn">
+                        <div class="swiper-button-prev-unique">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                        </div>
+                        <div class="swiper-button-next-unique">
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,18 +294,30 @@
     <script src="plugins/Swiper/swiper-bundle.min.js"></script>
     <script src="plugins/lightbox2-2.11.3/src/js/lightbox.js"></script>
 
-    <!-- <script src="plugins/loadgo-master/loadgo.min.js"></script> -->
-    <script>
 
+    <script>
         AOS.init();
 
-        const navigation = document.querySelector('.navigation');
-        let menuToggle = document.querySelector('.toggle');
-        menuToggle.onclick = function () {
-            menuToggle.classList.toggle('active')
-            navigation.classList.toggle('active')
-        }
+        // Normal -> Add navbar-dark
+        // Scroll > 100 -> Add navbar-light & bg-light
 
+        $(window).scroll(function () {
+            if ($(this).scrollTop() >= 700) {
+                $("#navbar-section").removeClass("light");
+                $("#navbar-section").addClass("dark");
+            } else {
+                $("#navbar-section").addClass("light");
+                $("#navbar-section").removeClass("dark");
+            }
+        });
+
+
+        const navigation = document.querySelector(".navigation");
+        let menuToggle = document.querySelector(".toggle");
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle("active");
+            navigation.classList.toggle("active");
+        };
 
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
@@ -281,20 +331,17 @@
                 modifier: 1,
                 slideShadows: true,
             },
-            // Navigation arrows
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: ".swiper-button-next-unique",
+                prevEl: ".swiper-button-prev-unique",
             },
-            pagination: {
-                el: ".swiper-pagination",
-            }
         });
 
         var swiper = new Swiper(".mySwiperCard", {
             effect: "cards",
             grabCursor: true,
         });
+
 
     </script>
 

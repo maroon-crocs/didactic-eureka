@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+.dark {
+  background-color: #000;
+  transition: 200ms ease-in-out;
+}
+
+.light {
+  background-color: transparent;
+  transition: 200ms ease-in-out;
+}
+
 body {
   width: 100vw;
   overflow-x: hidden;
@@ -32,6 +42,8 @@ body {
   position: fixed;
   padding: 10px 0;
   z-index: 999999;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #navbar-section .nav-logo {
@@ -274,6 +286,7 @@ h2 {
 #swiper-card-section {
   background-color: #000;
   min-height: 70vh;
+  overflow-x: hidden;
 }
 
 #swiper-card-section .swiper {
@@ -415,6 +428,7 @@ h2 {
 #swiper-slider-section {
   background-color: #000;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 #swiper-slider-section .swiper {
@@ -438,4 +452,16 @@ h2 {
 #swiper-slider-section .swiper-slide img {
   display: block;
   width: 100%;
+}
+
+.fa-arrow-left-long,
+.fa-arrow-right-long {
+  font-size: 40px;
+  color: #d09a28;
+}
+
+.navigation-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
