@@ -17,6 +17,12 @@
 body {
   width: 100vw;
   overflow-x: hidden;
+  background: rgb(17, 16, 16);
+  /* background: linear-gradient(
+    0deg,
+    rgba(17, 16, 16, 1) 50%,
+    rgba(57, 57, 57, 1) 100%
+  ); */
 }
 
 .carousel-item {
@@ -147,6 +153,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  filter: brightness(0.5);
 }
 
 .navigation span:first-child {
@@ -184,6 +191,7 @@ body {
   font-size: 3em;
   font-weight: 700;
   text-decoration: none;
+  font-family: "Raleway", sans-serif;
 }
 
 .navigation.active ul {
@@ -225,8 +233,8 @@ body {
 
 #events-section {
   min-height: 50vh;
-  padding: 50px 0;
-  background-color: black;
+  padding-bottom: 50px;
+  background-color: #272726;
 }
 
 h2 {
@@ -234,53 +242,56 @@ h2 {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  padding-bottom: 30px;
+  padding: 30px 0;
   font-family: "Parisienne", cursive;
+  text-shadow: 2px 4px black;
 }
 
+#events-section .my-atropos,
 #events-section .event-wrapper {
   width: 320px;
   height: 300px;
   margin: auto;
 }
 
-#events-section .wedding-event {
-  background-image: url("../images/couples/simrandeep&mehak/4T5A4000.jpg");
+#events-section .wedding-event,
+#events-section .pre-wedding-event,
+#events-section .engagement-event,
+#events-section .mehendi-event {
   background-size: cover;
-  background-position: top;
   background-repeat: no-repeat;
-  position: relative;
 }
 
-#events-section .wedding-event::before {
-  content: "";
-  color: #d09a28;
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* background-color: black; */
+#events-section .wedding-event {
+  background-image: url("../images/couples/simrandeep&mehak/4T5A4000.jpg");
+  background-position: top;
 }
 
 #events-section .pre-wedding-event {
   background-image: url("../images/couples/komal&prashant/558A8756-2.jpg");
-  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 #events-section .engagement-event {
   background-image: url("../images/couples/simrandeep&mehak/6O2A2589-2.jpg");
-  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 #events-section .mehendi-event {
   background-image: url("../images/couples/simrandeep&mehak/558A3136.jpg");
-  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+}
+
+#events-section .events-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.575);
 }
 
 #swiper-card-section {
@@ -309,6 +320,8 @@ h2 {
   background-image: url("../images/couples/komal&prashant/4T5A2739.jpg");
   background-position: center;
   background-size: cover;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
 }
 
 #swiper-card-section .komal-prashant .swiper-slide:nth-child(2n) {
@@ -369,6 +382,8 @@ h2 {
   background-image: url("../images/couples/simrandeep&mehak/4T5A4003.jpg");
   background-position: center;
   background-size: cover;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
 }
 
 #swiper-card-section .simrandeep-mehak .swiper-slide:nth-child(2n) {
@@ -426,9 +441,9 @@ h2 {
 }
 
 #swiper-slider-section {
-  background-color: #000;
-  min-height: 100vh;
+  min-height: 80vh;
   overflow: hidden;
+  background-color: #272726;
 }
 
 #swiper-slider-section .swiper {

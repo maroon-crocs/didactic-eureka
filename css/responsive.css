@@ -22,6 +22,9 @@
   .navigation ul {
     font-size: 2em;
   }
+  #events-section .my-atropos.atropos-rotate-touch {
+    touch-action: auto;
+  }
 }
 
 @media (max-width: 380px) {
