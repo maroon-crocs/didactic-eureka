@@ -18,11 +18,17 @@ body {
   width: 100vw;
   overflow-x: hidden;
   background: rgb(17, 16, 16);
-  /* background: linear-gradient(
-    0deg,
-    rgba(17, 16, 16, 1) 50%,
-    rgba(57, 57, 57, 1) 100%
-  ); */
+}
+
+#whatsapp-logo {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  z-index: 999999;
+}
+
+#whatsapp-logo img {
+  width: 70px;
 }
 
 .carousel-item {
@@ -35,11 +41,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .carousel-text h1 {
-  color: #d09a28;
-  font-size: 80px;
-  font-family: "Parisienne", cursive;
+  color: #fff;
+  font-size: 50px;
+  font-family: "Playfair Display", serif;
   text-shadow: 2px 4px black;
   font-weight: bold;
 }
@@ -53,9 +58,18 @@ body {
 }
 
 #navbar-section .nav-logo {
-  height: 100px;
   width: auto;
   margin-left: 20px;
+  transition: 200ms ease-in-out;
+  height: 100px;
+}
+
+#navbar-section .nav-logo-normal {
+  height: 100px;
+}
+
+#navbar-section .nav-logo-scroll {
+  height: 70px;
 }
 
 .toggle-wrapper {
@@ -69,6 +83,15 @@ body {
   border-radius: 10px;
   overflow: hidden;
   z-index: 999999;
+  transition: 200ms ease-in-out;
+}
+
+.toggle-wrapper-normal {
+  top: 40px;
+}
+
+.toggle-wrapper-scroll {
+  top: 25px;
 }
 
 .toggle {
@@ -191,7 +214,7 @@ body {
   font-size: 3em;
   font-weight: 700;
   text-decoration: none;
-  font-family: "Raleway", sans-serif;
+  font-family: "Playfair Display", serif;
 }
 
 .navigation.active ul {
@@ -240,10 +263,10 @@ body {
 h2 {
   color: #d09a28;
   text-align: center;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
   padding: 30px 0;
-  font-family: "Parisienne", cursive;
+  font-family: "Playfair Display", serif;
   text-shadow: 2px 4px black;
 }
 
@@ -289,7 +312,7 @@ h2 {
   height: 100%;
   color: #fff;
   font-size: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Playfair Display", serif;
   font-weight: 400;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.575);
 }
@@ -320,7 +343,7 @@ h2 {
   background-image: url("../images/couples/komal&prashant/4T5A2739.jpg");
   background-position: center;
   background-size: cover;
-  font-family: "Raleway", sans-serif;
+  font-family: "Playfair Display", serif;
   font-weight: 400;
 }
 
@@ -382,7 +405,7 @@ h2 {
   background-image: url("../images/couples/simrandeep&mehak/4T5A4003.jpg");
   background-position: center;
   background-size: cover;
-  font-family: "Raleway", sans-serif;
+  font-family: "Playfair Display", serif;
   font-weight: 400;
 }
 
@@ -449,7 +472,7 @@ h2 {
 #swiper-slider-section .swiper {
   width: 100%;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 #swiper-slider-section .swiper-slide {
@@ -479,4 +502,163 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#testimonial-section {
+  background-color: #000;
+  color: #fff;
+}
+
+#testimonial-section .testimonial {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+#testimonial-section .testimonial p {
+  letter-spacing: 0.8px;
+}
+
+#testimonial-section .testimonial h5 {
+  color: #d09a28;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #d09a28;
+  opacity: 1;
+}
+
+.slick-dots li button:before {
+  color: #fff;
+  font-size: 10px;
+}
+
+#about-us-section {
+  background-color: #272726;
+}
+
+#about-us-section p,
+#about-us-section h3 {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+
+#about-us-section .founder-img {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  margin: auto;
+  border: 4px solid #d09a28;
+  box-shadow: 1px 1px 20px 5px #000;
+  overflow: hidden;
+}
+
+#about-us-section .founder-img-wrapper-guf {
+  background-image: url("../images/founders/GUFRAN-KHAN.jpg");
+}
+
+#about-us-section .founder-img-wrapper-anant {
+  background-image: url("../images/founders/ANANT-PANDEY.jpg");
+}
+
+#about-us-section h5,
+#about-us-section h6 {
+  text-shadow: 2px 4px black;
+  color: #d09a28;
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Lato", sans-serif;
+}
+
+#contact-us-section {
+  background-color: #000;
+}
+
+#contact-us-section .form-wrapper {
+  width: 70%;
+  margin: auto;
+}
+
+#contact-us-section .form-control {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #d09a28;
+  font-family: "Lato", sans-serif;
+}
+
+.form-floating > label,
+label {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.form-control:focus {
+  border-color: #d09a28;
+  box-shadow: 0 0 0 0.25rem #d09b285a;
+}
+
+.form-check-input {
+  font-family: "Lato", sans-serif;
+}
+
+.form-check-input:checked {
+  background-color: #d09a28;
+  border-color: #d09a28;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #d09a28;
+  font-size: 20px;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+}
+
+.submit-btn:hover,
+.btn-primary:focus {
+  background-color: #272726;
+}
+
+#footer-section {
+  background-color: #272726;
+}
+
+#footer-section .footer-logo {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+#footer-section .social-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+#footer-section .social-wrapper h3,
+#footer-section .social-wrapper p {
+  color: #fff;
+  text-shadow: 2px 4px black;
+  text-align: center;
+}
+
+#footer-section .social-connect {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+#footer-section .social-connect .fa-brands,
+.fa-solid {
+  color: #d09a28;
+  font-size: 28px;
 }

@@ -1,10 +1,19 @@
 @media (max-width: 426px) {
+  .text-position-1 {
+    top: 30%;
+    position: absolute;
+  }
+  .text-position-2 {
+    top: 70%;
+    position: absolute;
+  }
+
   .carousel-text h1 {
-    font-size: 50px;
+    font-size: 45px;
     color: white;
   }
   #swiper-slider-section .swiper-slide {
-    width: 420px;
+    width: 100%;
   }
 
   .toggle-wrapper {
@@ -25,16 +34,14 @@
   #events-section .my-atropos.atropos-rotate-touch {
     touch-action: auto;
   }
-}
-
-@media (max-width: 380px) {
-  #swiper-slider-section .swiper-slide {
-    width: 360px;
+  #contact-us-section .form-wrapper {
+    width: 100%;
   }
 }
 
-@media (max-width: 340px) {
-  #swiper-slider-section .swiper-slide {
-    width: 320px;
+@media (max-width: 320px) {
+  #events-section .event-wrapper,
+  #events-section .my-atropos {
+    width: 280px;
   }
 }
