@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://exercism.org/tracks/javascript/exercises/annalyns-infiltration/edit -->
+<html lang="en-US" class="js-focus-visible" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.ͼ1.cm-editor.cm-focused {outline: 1px dotted #212121;}
+.ͼ1.cm-editor {position: relative !important; box-sizing: border-box; display: flex !important; flex-direction: column;}
+.ͼ1 .cm-scroller {display: flex !important; align-items: flex-start !important; font-family: monospace; line-height: 1.4; height: 100%; overflow-x: auto; position: relative; z-index: 0;}
+.ͼ1 .cm-content[contenteditable=true] {-webkit-user-modify: read-write-plaintext-only;}
+.ͼ1 .cm-content {margin: 0; flex-grow: 2; min-height: 100%; display: block; white-space: pre; word-wrap: normal; box-sizing: border-box; padding: 4px 0; outline: none;}
+.ͼ1 .cm-lineWrapping {white-space: pre-wrap; white-space: break-spaces; word-break: break-word; overflow-wrap: anywhere;}
+.ͼ2 .cm-content {caret-color: black;}
+.ͼ3 .cm-content {caret-color: white;}
+.ͼ1 .cm-line {display: block; padding: 0 2px 0 4px;}
+.ͼ1 .cm-selectionLayer {z-index: -1; contain: size style;}
+.ͼ1 .cm-selectionBackground {position: absolute;}
+.ͼ2 .cm-selectionBackground {background: #d9d9d9;}
+.ͼ3 .cm-selectionBackground {background: #222;}
+.ͼ2.cm-focused .cm-selectionBackground {background: #d7d4f0;}
+.ͼ3.cm-focused .cm-selectionBackground {background: #233;}
+.ͼ1 .cm-cursorLayer {z-index: 100; contain: size style; pointer-events: none;}
+.ͼ1.cm-focused .cm-cursorLayer {animation: steps(1) cm-blink 1.2s infinite;}
+@keyframes cm-blink {50% {visibility: hidden;}}
+@keyframes cm-blink2 {50% {visibility: hidden;}}
+.ͼ1 .cm-cursor, .ͼ1 .cm-dropCursor {position: absolute; border-left: 1.2px solid black; margin-left: -0.6px; pointer-events: none;}
+.ͼ1 .cm-cursor {display: none;}
+.ͼ3 .cm-cursor {border-left-color: #444;}
+.ͼ1.cm-focused .cm-cursor {display: block;}
+.ͼ2 .cm-activeLine {background-color: #f3f9ff;}
+.ͼ3 .cm-activeLine {background-color: #223039;}
+.ͼ2 .cm-specialChar {color: red;}
+.ͼ3 .cm-specialChar {color: #f78;}
+.ͼ1 .cm-tab {display: inline-block; overflow: hidden; vertical-align: bottom;}
+.ͼ1 .cm-placeholder {color: #888; display: inline-block; vertical-align: top;}
+.ͼ1 .cm-button {vertical-align: middle; color: inherit; font-size: 70%; padding: .2em 1em; border-radius: 1px;}
+.ͼ2 .cm-button:active {background-image: linear-gradient(#b4b4b4, #d0d3d6);}
+.ͼ2 .cm-button {background-image: linear-gradient(#eff1f5, #d9d9df); border: 1px solid #888;}
+.ͼ3 .cm-button:active {background-image: linear-gradient(#111, #333);}
+.ͼ3 .cm-button {background-image: linear-gradient(#393939, #111); border: 1px solid #888;}
+.ͼ1 .cm-textfield {vertical-align: middle; color: inherit; font-size: 70%; border: 1px solid silver; padding: .2em .5em;}
+.ͼ2 .cm-textfield {background-color: white;}
+.ͼ3 .cm-textfield {border: 1px solid #555; background-color: inherit;}
+.ͼ1 .cm-a11y-panel {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;}
+.ͼ1 .cm-panels {box-sizing: border-box; position: sticky; left: 0; right: 0;}
+.ͼ2 .cm-panels {background-color: #f5f5f5; color: black;}
+.ͼ2 .cm-panels-top {border-bottom: 1px solid #ddd;}
+.ͼ2 .cm-panels-bottom {border-top: 1px solid #ddd;}
+.ͼ3 .cm-panels {background-color: #333338; color: white;}
+.ͼ1 .cm-selectionMatch {background-color: #99ff7780;}
+.ͼ1 .cm-searchMatch .cm-selectionMatch {background-color: transparent;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li {overflow-x: hidden; text-overflow: ellipsis; cursor: pointer; padding: 1px 3px; line-height: 1.2;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul {font-family: monospace; white-space: nowrap; overflow: hidden auto; max-width: 700px; max-width: min(700px, 95vw); min-width: 250px; max-height: 10em; list-style: none; margin: 0; padding: 0;}
+.ͼ2 .cm-tooltip-autocomplete ul li[aria-selected] {background: #17c; color: white;}
+.ͼ3 .cm-tooltip-autocomplete ul li[aria-selected] {background: #347; color: white;}
+.ͼ1 .cm-completionListIncompleteTop:before, .ͼ1 .cm-completionListIncompleteBottom:after {content: "···"; opacity: 0.5; display: block; text-align: center;}
+.ͼ1 .cm-tooltip.cm-completionInfo {position: absolute; padding: 3px 9px; width: max-content; max-width: 300px;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-left {right: 100%;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-right {left: 100%;}
+.ͼ2 .cm-snippetField {background-color: #00000022;}
+.ͼ3 .cm-snippetField {background-color: #ffffff22;}
+.ͼ1 .cm-snippetFieldPosition {vertical-align: text-top; width: 0; height: 1.15em; margin: 0 -0.7px -.7em; border-left: 1.4px dotted #888;}
+.ͼ1 .cm-completionMatchedText {text-decoration: underline;}
+.ͼ1 .cm-completionDetail {margin-left: 0.5em; font-style: italic;}
+.ͼ1 .cm-completionIcon {font-size: 90%; width: .8em; display: inline-block; text-align: center; padding-right: .6em; opacity: 0.6;}
+.ͼ1 .cm-completionIcon-function:after, .ͼ1 .cm-completionIcon-method:after {content: 'ƒ';}
+.ͼ1 .cm-completionIcon-class:after {content: '○';}
+.ͼ1 .cm-completionIcon-interface:after {content: '◌';}
+.ͼ1 .cm-completionIcon-variable:after {content: '𝑥';}
+.ͼ1 .cm-completionIcon-constant:after {content: '𝐶';}
+.ͼ1 .cm-completionIcon-type:after {content: '𝑡';}
+.ͼ1 .cm-completionIcon-enum:after {content: '∪';}
+.ͼ1 .cm-completionIcon-property:after {content: '□';}
+.ͼ1 .cm-completionIcon-keyword:after {content: '🔑︎';}
+.ͼ1 .cm-completionIcon-namespace:after {content: '▢';}
+.ͼ1 .cm-completionIcon-text:after {content: 'abc'; font-size: 50%; vertical-align: middle;}
+.ͼ1 .cm-tooltip {z-index: 100;}
+.ͼ2 .cm-tooltip {border: 1px solid #bbb; background-color: #f5f5f5;}
+.ͼ2 .cm-tooltip-section:not(:first-child) {border-top: 1px solid #bbb;}
+.ͼ3 .cm-tooltip {background-color: #333338; color: white;}
+.ͼ1 .cm-tooltip-arrow:before, .ͼ1 .cm-tooltip-arrow:after {content: ''; position: absolute; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:before {border-top: 7px solid #bbb;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:after {border-top: 7px solid #f5f5f5; bottom: 1px;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow {bottom: -7px;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:before {border-bottom: 7px solid #bbb;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:after {border-bottom: 7px solid #f5f5f5; top: 1px;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow {top: -7px;}
+.ͼ1 .cm-tooltip-arrow {height: 7px; width: 14px; position: absolute; z-index: -1; overflow: hidden;}
+.ͼ3 .cm-tooltip .cm-tooltip-arrow:before {border-top-color: #333338; border-bottom-color: #333338;}
+.ͼ3 .cm-tooltip .cm-tooltip-arrow:after {border-top-color: transparent; border-bottom-color: transparent;}
+.ͼ1 .cm-matchingBracket {background-color: #328c8252;}
+.ͼ1 .cm-nonmatchingBracket {background-color: #bb555544;}
+.ͼ1 .cm-foldPlaceholder {background-color: #eee; border: 1px solid #ddd; color: #888; border-radius: .2em; margin: 0 1px; padding: 0 1px; cursor: pointer;}
+.ͼ1 .cm-foldGutter span {padding: 0 1px; cursor: pointer;}
+.ͼ1 .cm-gutters {display: flex; height: 100%; box-sizing: border-box; left: 0; z-index: 200;}
+.ͼ2 .cm-gutters {background-color: #f5f5f5; color: #999; border-right: 1px solid #ddd;}
+.ͼ3 .cm-gutters {background-color: #333338; color: #ccc;}
+.ͼ1 .cm-gutter {display: flex !important; flex-direction: column; flex-shrink: 0; box-sizing: border-box; min-height: 100%; overflow: hidden;}
+.ͼ1 .cm-gutterElement {box-sizing: border-box;}
+.ͼ1 .cm-lineNumbers .cm-gutterElement {padding: 0 3px 0 5px; min-width: 20px; text-align: right; white-space: nowrap;}
+.ͼ2 .cm-activeLineGutter {background-color: #e2f2ff;}
+.ͼ3 .cm-activeLineGutter {background-color: #222227;}
+.ͼ5 {text-decoration: underline;}
+.ͼ6 {text-decoration: underline; font-weight: bold;}
+.ͼ7 {font-style: italic;}
+.ͼ8 {font-weight: bold;}
+.ͼ9 {text-decoration: line-through;}
+.ͼa {color: #708;}
+.ͼb {color: #219;}
+.ͼc {color: #164;}
+.ͼd {color: #a11;}
+.ͼe {color: #e40;}
+.ͼf {color: #00f;}
+.ͼg {color: #30a;}
+.ͼh {color: #085;}
+.ͼi {color: #167;}
+.ͼj {color: #256;}
+.ͼk {color: #00c;}
+.ͼl {color: #940;}
+.ͼm {color: #7a757a;}
+.ͼn {color: #f00;}
+.ͼ4 .cm-line ::selection {background-color: transparent !important;}
+.ͼ4 .cm-line::selection {background-color: transparent !important;}
+.ͼ4 .cm-line {caret-color: transparent !important;}
+</style><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+<!-- Do this first - we want things loading ASAP. -->
+
+
+
+<!-- We always want this rendered at the start. -->
+<link rel="stylesheet" href="./Exercism_files/website-4852ec87cfcdf41b1988b9c47ce0fe38618cfbf6.css" data-turbo-track="reload">
+<link rel="stylesheet" href="./Exercism_files/css2">
+<script data-api="/usage/api/event" data-domain="exercism.org" defer="" src="./Exercism_files/script.js"></script>
+<link rel="stylesheet" href="./Exercism_files/internal-6b2101fcbab07259dd58cc6a8318112a6f357ce2.css" data-turbo-track="reload">
+<link rel="stylesheet" href="./Exercism_files/application-69fb7b3abaf2e7663cc89f6a267aa2796b38294d.css" data-turbo-track="reload">
+<script src="./Exercism_files/core-8e98e125fb7acfe200ab5d1acf16a3dd2216e4fe.js" crossorigin="anonymous" type="module" data-turbo-track="reload" data-turbo-eval="false"></script>
+<script src="./Exercism_files/application-1ef353d9a9484911ddab71282369549cbca90ac7.js" crossorigin="anonymous" type="module" data-turbo-track="reload" data-turbo-eval="false"></script>
+<script src="./Exercism_files/internal-1cdb37e11bd6ceda9df9571e6edd9b269ef764ed.js" crossorigin="anonymous" type="module" data-turbo-track="reload" data-turbo-eval="false"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Twitter Card data -->
+
+
+
+
+
+
+
+<!-- Open Graph data -->
+
+
+
+
+
+
+
+<!-- Favicon -->
+
+
+
+
+
+<style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style><script src="./Exercism_files/v3"></script><link href="https://fonts.googleapis.com/" rel="preconnect"><link crossorigin="true" href="https://fonts.gstatic.com/" rel="preconnect"><link crossorigin="true" href="https://d24y9kuxp2d7l2.cloudfront.net/" rel="preconnect"><meta content="width=device-width, initial-scale=1" name="viewport"><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="QWewEdr6_fsGzRfzRBxb5-Bw-wwkSvhw-zARMyoC9NYO6OqJVPuaRnfAizRcy3gOIX3Ac5KTPLuxz8mSygUvrA"><meta name="action-cable-url" content="wss://exercism.org/cable"><meta content="language-servers-925786784.eu-west-2.elb.amazonaws.com" name="language-server-url"><meta content="https://exercism.org/api/v2/bug_reports" name="bug-reports-url"><meta content="https://exercism.org/api/v2/markdown/parse" name="parse-markdown-url"><meta content="967271" name="user-id"><meta content="pk_live_51IDGMXEoOT0Jqx0UGsyx7fUW7iojTCPobNQDDoVdVY64qsyeNyFDqQRAgXSdj2HF8mYzPGxsBWIEFPnenq0lEhLH00x7KfG52T" name="stripe-publishable-key"><title>Exercism</title><meta content="Learn, practice and get world-class mentoring in over 50 languages. 100% free." name="description"><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"><meta content="summary_large_image" name="twitter:card"><meta content="@exercism_io" name="twitter:site"><meta content="@exercism_io" name="twitter:creator"><meta content="https://exercism.org/tracks/javascript/exercises/annalyns-infiltration/edit" name="twitter:url"><meta content="Exercism" name="twitter:title"><meta content="Learn, practice and get world-class mentoring in over 50 languages. 100% free." name="twitter:description"><meta content="https://dg8krxphbh767.cloudfront.net/meta/og.png" name="twitter:image"><meta content="Exercism" property="og:title"><meta content="website" property="og:type"><meta content="https://exercism.org/tracks/javascript/exercises/annalyns-infiltration/edit" property="og:url"><meta content="https://dg8krxphbh767.cloudfront.net/meta/og.png" property="og:image"><meta content="Learn, practice and get world-class mentoring in over 50 languages. 100% free." property="og:description"><meta content="Exercism" property="og:site_name"><meta content="744760440" property="fb:admins"><link href="https://dg8krxphbh767.cloudfront.net/meta/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"><link href="https://dg8krxphbh767.cloudfront.net/meta/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"><link href="https://dg8krxphbh767.cloudfront.net/meta/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"><link href="https://exercism.org/site.webmanifest" rel="manifest"></head>
+<body class="namespace-tracks controller-exercises action-edit theme-light user-signed_in">
+<header id="site-header"><a class="announcement-bar" href="https://exercism.org/about/hiring"><div class="lg-container"><span>We’re hiring!</span><strong>Come and join the Exercism team</strong><span>😁</span></div></a><div class="lg-container container"><a class="exercism-link xl:block" href="https://exercism.org/"><img alt="Exercism" class="c-icon" src="./Exercism_files/exercism-with-logo-black-b427c06c6a068ba9f391734115e4d22dfa876d1d.svg"></a><a class="ukraine-link" target="_blank" rel="noopener" href="https://donate.redcross.org.uk/appeal/ukraine-crisis-appeal"><img alt="Ukraine-coloured heart" class="c-icon" src="./Exercism_files/ukraine-ddee71b9968c24f6ffad2d0967fe8f39d2d00dd8.svg"></a><div class="docs-search"><div class="c-search-bar"><input class="--search" placeholder="Search Exercism&#39;s docs..."></div></div><nav class="signed-in"><ul><li><a href="https://exercism.org/dashboard"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/dashboard-d6d946e5b42a4aef577066eca7b695641e21130a.svg"><span>Dashboard</span></a></li><li><a href="https://exercism.org/tracks"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/tracks-2e780b460e113a9b07ce4446c988a31c40547b00.svg"><span>Tracks</span></a></li><li><a href="https://exercism.org/mentoring/inbox"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/mentoring-4d1e266458e8e3293b94679b92ccea4aa2cdb58b.svg"><span>Mentoring</span></a></li><li><a href="https://exercism.org/contributing"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/contribute-269d926a07a0b503203914911e0a5704469ae8c4.svg"><span>Contribute</span></a></li><li><a href="https://exercism.org/donate"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/contribute-269d926a07a0b503203914911e0a5704469ae8c4.svg"><span>Donate 💜</span></a></li></ul></nav><div class="user-section"><a class="new-badge" href="https://exercism.org/journey/badges#journey-content"></a><div class="c-react-component c-react-wrapper-dropdowns-notifications --hydrated" data-react-dropdowns-notifications="true" data-react-data="{&quot;endpoint&quot;:&quot;https://exercism.org/api/v2/notifications?order=unread_first&quot;}"><button class="c-notification --none" aria-label="Open notifications" aria-controls="9283e6d5-eb9b-49ce-a9d6-8cc8b48a615c" aria-haspopup="true"><img src="./Exercism_files/notifications-2e6c2d672e24a543905250aefc304f77e88718ff.svg" alt="You have 0 notifications" class="c-icon"><div class="--count">0</div></button></div><div class="c-react-component c-react-wrapper-dropdowns-reputation --hydrated" data-react-dropdowns-reputation="true" data-react-data="{&quot;reputation&quot;:&quot;2&quot;,&quot;is_seen&quot;:false,&quot;endpoint&quot;:&quot;https://exercism.org/api/v2/reputation?order=unseen_first\u0026per_page=5&quot;}"><button class="c-primary-reputation" aria-label="2 reputation" aria-controls="032025db-41a8-4355-bcae-7dc938aabd6c" aria-haspopup="true"><img src="./Exercism_files/reputation-5b5938e36519908ac61075db3b9826307a0f907a.svg" alt="Reputation" class="c-icon"><span>2</span><div class="--notification unseen"></div></button></div><div class="c-react-component c-react-wrapper-dropdowns-dropdown --hydrated" data-react-dropdowns-dropdown="true" data-react-data="{&quot;menu_button&quot;:{&quot;label&quot;:&quot;Button to open the profile menu&quot;,&quot;className&quot;:&quot;user-menu&quot;,&quot;html&quot;:&quot;\u003cdiv class=\&quot;c-avatar\&quot; style=\&quot;background-image:url(\u0026quot;https://avatars.githubusercontent.com/u/70748850?v=4\u0026quot;)\&quot;\u003e\u003cimg alt=\&quot;Uploaded avatar of aryanat1911\&quot; class=\&quot;sr-only\&quot; src=\&quot;https://avatars.githubusercontent.com/u/70748850?v=4\&quot; /\u003e\u003c/div\u003e\u003cimg alt=\&quot;Profile Menu\&quot; class=\&quot;c-icon\&quot; src=\&quot;https://d24y9kuxp2d7l2.cloudfront.net/assets/icons/more-vertical-371ef6f2314bb5dbe5d3892a7ee098c6ebc3cf30.svg\&quot; /\u003e&quot;},&quot;menu_items&quot;:[{&quot;html&quot;:&quot;\u003ca href=\&quot;/profiles/intro\&quot;\u003e\u003cdiv class=\&quot;c-avatar\&quot; style=\&quot;background-image:url(\u0026quot;https://avatars.githubusercontent.com/u/70748850?v=4\u0026quot;)\&quot;\u003e\u003cimg alt=\&quot;Your uploaded avatar\&quot; class=\&quot;sr-only\&quot; src=\&quot;https://avatars.githubusercontent.com/u/70748850?v=4\&quot; /\u003e\u003c/div\u003e\u003cdiv class=\&quot;info\&quot;\u003e\u003cdiv class=\&quot;name\&quot;\u003eAryan Khan\u003c/div\u003e\u003cdiv class=\&quot;handle\&quot;\u003e@aryanat1911\u003c/div\u003e\u003c/div\u003e\u003cimg alt=\&quot;Open public profile\&quot; class=\&quot;c-icon\&quot; src=\&quot;https://d24y9kuxp2d7l2.cloudfront.net/assets/icons/external-link-49b422d65245eaf4cb29a072e85d73b5c6b8aa04.svg\&quot; /\u003e\u003c/a\u003e&quot;,&quot;className&quot;:&quot;profile&quot;},{&quot;html&quot;:&quot;\u003cdiv class=\&quot;c-primary-reputation\&quot; aria-label=\&quot;2 reputation\&quot;\u003e\u003cimg alt=\&quot;Reputation\&quot; class=\&quot;c-icon\&quot; src=\&quot;https://d24y9kuxp2d7l2.cloudfront.net/assets/icons/reputation-5b5938e36519908ac61075db3b9826307a0f907a.svg\&quot; /\u003e\u003cspan\u003e2\u003c/span\u003e\u003c/div\u003e&quot;,&quot;className&quot;:&quot;reputation&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/dashboard\&quot;\u003eDashboard\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt site-link&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/tracks\&quot;\u003eTracks\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt site-link&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/mentoring/inbox\&quot;\u003eMentoring\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt site-link&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/contributing\&quot;\u003eContribute\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt site-link&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/donate\&quot;\u003eDonate 💜\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt site-link donate&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/profiles/intro\&quot;\u003ePublic Profile\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/journey\&quot;\u003eYour Journey\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt&quot;},{&quot;html&quot;:&quot;\u003ca href=\&quot;/settings\&quot;\u003eSettings\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt&quot;},{&quot;html&quot;:&quot;\u003ca rel=\&quot;nofollow\&quot; data-method=\&quot;delete\&quot; href=\&quot;/users/sign_out\&quot;\u003eSign out\u003c/a\u003e&quot;,&quot;className&quot;:&quot;opt&quot;}]}"><button class="user-menu " aria-label="Button to open the profile menu" aria-controls="c30a92bd-0b52-4009-9595-1b243d46bcf7" aria-haspopup="true"><div class="c-avatar" style="background-image:url(&quot;https://avatars.githubusercontent.com/u/70748850?v=4&quot;)"><img alt="Uploaded avatar of aryanat1911" class="sr-only" src="./Exercism_files/70748850"></div><img alt="Profile Menu" class="c-icon" src="./Exercism_files/more-vertical-371ef6f2314bb5dbe5d3892a7ee098c6ebc3cf30.svg"></button></div></div></div></header>
+<div class="c-react-component c-react-wrapper-editor --hydrated" data-react-editor="true" data-react-data="{&quot;default_submissions&quot;:[],&quot;default_files&quot;:[{&quot;filename&quot;:&quot;annalyns-infiltration.js&quot;,&quot;type&quot;:&quot;exercise&quot;,&quot;content&quot;:&quot;// @ts-check\n//\n// ☝🏽 The line above enables type checking for this file. Various IDEs interpret\n// the @ts-check directive. It will give you helpful autocompletion on the web\n// and supported IDEs when implementing this exercise. You don&#39;t need to\n// understand types, JSDoc, or TypeScript in order to complete this JavaScript\n// exercise, and can completely ignore this comment block and directive.\n\n// 👋🏽 Hi again!\n//\n// A quick reminder about exercise stubs:\n//\n// 💡 You&#39;re allowed to completely clear any stub before you get started. Often\n// we recommend using the stub, because they are already set-up correctly to\n// work with the tests, which you can find in ./annalyns-infiltration.spec.js.\n//\n// 💡 You don&#39;t need to write JSDoc comment blocks yourself; it is not expected\n// in idiomatic JavaScript, but some companies and style-guides do enforce them.\n//\n// Now help Annalyn free her best friend!\n\n/**\n * The fast attack is available when the knight is sleeping\n *\n * @param {boolean} knightIsAwake\n *\n * @return {boolean} Whether or not you can execute a fast attack.\n */\nexport function canExecuteFastAttack(knightIsAwake) {\n  throw new Error(&#39;Remove this line and implement the function&#39;);\n}\n\n/**\n * A useful spy captures information, which they can&#39;t do if everyone&#39;s asleep.\n *\n * @param {boolean} knightIsAwake\n * @param {boolean} archerIsAwake\n * @param {boolean} prisonerIsAwake\n *\n * @returns {boolean} Whether or not you can spy on someone.\n */\nexport function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {\n  throw new Error(&#39;Remove this line and implement the function&#39;);\n}\n\n/**\n * You&#39;ll get caught by the archer if you signal while they&#39;re awake.\n *\n * @param {boolean} archerIsAwake\n * @param {boolean} prisonerIsAwake\n *\n * @returns {boolean} Whether or not you can send a signal to the prisoner.\n */\nexport function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {\n  throw new Error(&#39;Remove this line and implement the function&#39;);\n}\n\n/**\n * The final stage in the plan: freeing Annalyn&#39;s best friend.\n *\n * @param {boolean} knightIsAwake\n * @param {boolean} archerIsAwake\n * @param {boolean} prisonerIsAwake\n * @param {boolean} petDogIsPresent\n *\n * @returns {boolean} Whether or not you can free Annalyn&#39;s friend.\n */\nexport function canFreePrisoner(\n  knightIsAwake,\n  archerIsAwake,\n  prisonerIsAwake,\n  petDogIsPresent\n) {\n  throw new Error(&#39;Remove this line and implement the function&#39;);\n}\n&quot;}],&quot;default_settings&quot;:{&quot;tab_size&quot;:2,&quot;use_soft_tabs&quot;:true},&quot;autosave&quot;:{&quot;key&quot;:&quot;55282ee1dc0942afbad1447293203ba6&quot;,&quot;save_interval&quot;:500},&quot;panels&quot;:{&quot;instructions&quot;:{&quot;introduction&quot;:&quot;\u003cp\u003eA boolean represents one of two values: \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e.\nLogical operators (\u003ccode\u003e!\u003c/code\u003e, \u003ccode\u003e\u0026amp;\u0026amp;\u003c/code\u003e, \u003ccode\u003e||\u003c/code\u003e) are typically used with boolean values and they return a boolean value.\u003c/p\u003e\n&quot;,&quot;assignment&quot;:{&quot;overview&quot;:&quot;\u003cp\u003eIn this exercise, you&#39;ll be implementing the quest logic for a new RPG game a friend is developing. The game&#39;s main\ncharacter is Annalyn, a brave girl with a fierce and loyal pet dog. Unfortunately, disaster strikes, as her best friend\nwas kidnapped while searching for berries in the forest. Annalyn will try to find and free her best friend, optionally\ntaking her dog with her on this quest.\u003c/p\u003e\n\u003cp\u003eAfter some time spent following her best friend&#39;s trail, she finds the camp in which her best friend is imprisoned. It\nturns out there are two kidnappers: a mighty knight and a cunning archer.\u003c/p\u003e\n\u003cp\u003eHaving found the kidnappers, Annalyn considers which of the following actions she can engage in:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003eFast attack\u003c/em\u003e: a fast attack can be made if the \u003cstrong\u003eknight\u003c/strong\u003e is \u003cem\u003e\u003cstrong\u003esleeping\u003c/strong\u003e\u003c/em\u003e, as it takes time for him to get his\narmor on, so he will be vulnerable.\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003eSpy\u003c/em\u003e: the group can be spied upon if \u003cstrong\u003eat least one\u003c/strong\u003e of them is \u003cem\u003e\u003cstrong\u003eawake\u003c/strong\u003e\u003c/em\u003e. Otherwise, spying is a waste of time.\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003eSignal prisoner\u003c/em\u003e: the prisoner can be signalled using bird sounds if the \u003cstrong\u003eprisoner\u003c/strong\u003e is \u003cem\u003e\u003cstrong\u003eawake\u003c/strong\u003e\u003c/em\u003e and the\n\u003cstrong\u003earcher\u003c/strong\u003e is \u003cem\u003e\u003cstrong\u003esleeping\u003c/strong\u003e\u003c/em\u003e, as archers are trained in bird signaling so they could intercept the message.\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003eFree prisoner\u003c/em\u003e: Annalyn can try sneaking into the camp to free the prisoner. This is a risky thing to do and can\nonly succeed in one of two ways:\n\u003cul\u003e\n\u003cli\u003eIf Annalyn has her pet dog with her she can rescue the prisoner if the \u003cstrong\u003earcher\u003c/strong\u003e is \u003cem\u003e\u003cstrong\u003easleep\u003c/strong\u003e\u003c/em\u003e. The knight is\nscared of the dog and the archer will not have time to get ready before Annalyn and the prisoner can escape.\u003c/li\u003e\n\u003cli\u003eIf Annalyn does not have her dog then she and the prisoner must be very sneaky! Annalyn can free the prisoner\nif the \u003cstrong\u003eprisoner\u003c/strong\u003e is \u003cem\u003e\u003cstrong\u003eawake\u003c/strong\u003e\u003c/em\u003e and the \u003cstrong\u003eknight\u003c/strong\u003e and \u003cstrong\u003earcher\u003c/strong\u003e are both \u003cem\u003e\u003cstrong\u003esleeping\u003c/strong\u003e\u003c/em\u003e, but if the\n\u003cstrong\u003eprisoner\u003c/strong\u003e is \u003cem\u003e\u003cstrong\u003esleeping\u003c/strong\u003e\u003c/em\u003e they can&#39;t be rescued: the prisoner would be startled by Annalyn&#39;s sudden\nappearance and wake up the knight and archer.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eYou have four tasks: to implement the logic for determining if the above actions are available based on the state of the\nthree characters found in the forest and whether Annalyn&#39;s pet dog is present or not.\u003c/p\u003e\n&quot;,&quot;general_hints&quot;:[],&quot;tasks&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Check if the &#39;Fast Attack&#39; action is possible&quot;,&quot;text&quot;:&quot;\u003cp\u003eImplement a function named \u003ccode\u003ecanExecuteFastAttack\u003c/code\u003e that takes a boolean value which indicates if the knight is awake.\nThis function returns \u003ccode\u003etrue\u003c/code\u003e if the &#39;Fast Attack&#39; action is available based on the state of the character. Otherwise,\nreturns \u003ccode\u003efalse\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\&quot;language-javascript\&quot;\u003econst knightIsAwake = true;\ncanExecuteFastAttack(knightIsAwake);\n// =\u0026gt; false\n\u003c/code\u003e\u003c/pre\u003e\n&quot;,&quot;hints&quot;:[&quot;\u003cul\u003e\n\u003cli\u003eThe logical NOT operator (\u003ccode\u003e!\u003c/code\u003e) can be placed before an expression to negate its value.\u003c/li\u003e\n\u003cli\u003eCheck out \u003ca href=\&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators#Logical_NOT_!\&quot; target=\&quot;_blank\&quot; rel=\&quot;noopener\&quot;\u003ethis MDN\narticle\u003c/a\u003e\non Logical Operators\u003c/li\u003e\n\u003c/ul\u003e\n&quot;]},{&quot;id&quot;:2,&quot;title&quot;:&quot;Check if the &#39;Spy&#39; action is possible&quot;,&quot;text&quot;:&quot;\u003cp\u003eImplement a function named \u003ccode\u003ecanSpy\u003c/code\u003e that takes three boolean values, indicating if the knight, archer and the prisoner,\nrespectively, are awake. The function returns \u003ccode\u003etrue\u003c/code\u003e if the &#39;Spy&#39; action is available based on the state of the\ncharacters. Otherwise, returns \u003ccode\u003efalse\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\&quot;language-javascript\&quot;\u003econst knightIsAwake = false;\nconst archerIsAwake = true;\nconst prisonerIsAwake = false;\ncanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake);\n// =\u0026gt; true\n\u003c/code\u003e\u003c/pre\u003e\n&quot;,&quot;hints&quot;:[&quot;\u003cul\u003e\n\u003cli\u003eLogical expressions are evaluated from left to right and are tested for possible &#39;short-circuits&#39;.\u003c/li\u003e\n\u003cli\u003eFor a comprehensive understanding of the left-to-right mechanic, take a look at \u003ca href=\&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence\&quot; target=\&quot;_blank\&quot; rel=\&quot;noopener\&quot;\u003ethis\narticle\u003c/a\u003e!\u003c/li\u003e\n\u003c/ul\u003e\n&quot;]},{&quot;id&quot;:3,&quot;title&quot;:&quot;Check if the &#39;Signal Prisoner&#39; action is possible&quot;,&quot;text&quot;:&quot;\u003cp\u003eImplement a function named \u003ccode\u003ecanSignalPrisoner\u003c/code\u003e that takes two boolean values, indicating if the archer and the prisoner,\nrespectively, are awake. The function returns \u003ccode\u003etrue\u003c/code\u003e if the &#39;Signal Prisoner&#39; action is available based on the state of\nthe characters. Otherwise, returns \u003ccode\u003efalse\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\&quot;language-javascript\&quot;\u003econst archerIsAwake = false;\nconst prisonerIsAwake = true;\ncanSignalPrisoner(archerIsAwake, prisonerIsAwake);\n// =\u0026gt; true\n\u003c/code\u003e\u003c/pre\u003e\n&quot;,&quot;hints&quot;:[&quot;\u003cul\u003e\n\u003cli\u003eLogical operators in the order of their precedence (from highest to lowest): \u003ccode\u003e!\u003c/code\u003e, \u003ccode\u003e\u0026amp;\u0026amp;\u003c/code\u003e, \u003ccode\u003e||\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eCheck out \u003ca href=\&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Precedence_And_Associativity\&quot; target=\&quot;_blank\&quot; rel=\&quot;noopener\&quot;\u003ethis MDN\narticle\u003c/a\u003e\non Operator Precedence\u003c/li\u003e\n\u003c/ul\u003e\n&quot;]},{&quot;id&quot;:4,&quot;title&quot;:&quot;Check if the &#39;Free Prisoner&#39; action is possible&quot;,&quot;text&quot;:&quot;\u003cp\u003eImplement a function named \u003ccode\u003ecanFreePrisoner\u003c/code\u003e that takes four boolean values. The first three parameters indicate if the\nknight, archer and the prisoner, respectively, are awake. The last parameter indicates if Annalyn&#39;s pet dog is present.\nThe function returns \u003ccode\u003etrue\u003c/code\u003e if the &#39;Free Prisoner&#39; action is available based on the state of the characters and\nAnnalyn&#39;s pet dog presence. Otherwise, it returns \u003ccode\u003efalse\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\&quot;language-javascript\&quot;\u003econst knightIsAwake = false;\nconst archerIsAwake = true;\nconst prisonerIsAwake = false;\nconst petDogIsPresent = false;\ncanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent);\n// =\u0026gt; false\n\u003c/code\u003e\u003c/pre\u003e\n&quot;,&quot;hints&quot;:[&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e()\u003c/code\u003e is the operator with the highest precedence. Use it to group logical expressions.\u003c/li\u003e\n\u003c/ul\u003e\n&quot;]}]},&quot;debugging_instructions&quot;:&quot;\u003cp\u003eWhen a test fails, a message is displayed describing what went wrong and for which input. You can also use the fact that any \u003ccode\u003econsole\u003c/code\u003e output will be shown too. You can write to the console using:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\&quot;language-javascript\&quot;\u003econsole.log(&#39;Debug message&#39;);\n\u003c/code\u003e\u003c/pre\u003e\n&quot;},&quot;tests&quot;:null,&quot;results&quot;:{&quot;average_test_duration&quot;:6.0}},&quot;track&quot;:{&quot;title&quot;:&quot;JavaScript&quot;,&quot;slug&quot;:&quot;javascript&quot;},&quot;exercise&quot;:{&quot;title&quot;:&quot;Annalyn&#39;s Infiltration&quot;,&quot;slug&quot;:&quot;annalyns-infiltration&quot;},&quot;links&quot;:{&quot;run_tests&quot;:&quot;https://exercism.org/api/v2/solutions/55282ee1dc0942afbad1447293203ba6/submissions&quot;,&quot;back&quot;:&quot;/tracks/javascript/exercises/annalyns-infiltration&quot;}}"><div id="page-editor"><div class="header"><a href="https://exercism.org/tracks/javascript/exercises/annalyns-infiltration" class="close-btn"><img src="./Exercism_files/arrow-left-4fedf4dce89347e9605602fd3ae9d14be590e735.svg" alt="" role="presentation" class="c-icon">Back to Exercise</a><div class="title"><div class="track">JavaScript</div><div class="divider">/</div><div class="exercise">Annalyn's Infiltration</div></div><div class="options"><button class="hints-btn"><img src="./Exercism_files/hints-c457520410f634c7ecee6c9aa99a2e306c605ec1.svg" alt="View all hints" class="c-icon"></button><button class="settings-btn" aria-controls="55102746-ca01-42c6-b0be-778392a681b2" aria-haspopup="true"><img src="./Exercism_files/settings-f325518f0f05f6549f9585e2e89d694ba1686050.svg" alt="Settings" class="c-icon"></button><button aria-controls="11949665-0eea-4e19-9449-4b85467fbd89" aria-haspopup="true" class="more-btn"><img src="./Exercism_files/more-horizontal-3d03736796a8555be89dea121bbb1721f6703001.svg" alt="Open more options" class="c-icon"></button></div></div><div class="c-split-pane"><div class="--split-lhs" style="min-width: 100px;"><div class="c-iteration-pane"><div class="tabs"><button class="c-tab  selected" role="tab" aria-selected="true" aria-controls="panel-annalyns-infiltration.js" id="tab-annalyns-infiltration.js" tabindex="0">annalyns-infiltration.js</button></div><div id="panel-annalyns-infiltration.js" role="tabpanel" aria-labelledby="tab-annalyns-infiltration.js" tabindex="0" class="--tab-panel undefined"><div class="editor"><div class="cm-editor cm-focused ͼ1 ͼ2 ͼ4"><div class="cm-panels cm-panels-top" style="top: 0px;"><div class="cm-a11y-panel cm-panel" aria-live="assertive" aria-atomic="true"></div></div><div aria-live="polite" style="position: absolute; top: -10000px;"></div><div tabindex="-1" class="cm-scroller"><div class="cm-gutters" aria-hidden="true" style="min-height: 1204px; position: sticky;"><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">99</div><div class="cm-gutterElement" style="height: 24px;">1</div><div class="cm-gutterElement" style="height: 24px;">2</div><div class="cm-gutterElement" style="height: 24px;">3</div><div class="cm-gutterElement" style="height: 24px;">4</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 24px;">5</div><div class="cm-gutterElement" style="height: 24px;">6</div><div class="cm-gutterElement" style="height: 24px;">7</div><div class="cm-gutterElement" style="height: 24px;">8</div><div class="cm-gutterElement" style="height: 24px;">9</div><div class="cm-gutterElement" style="height: 24px;">10</div><div class="cm-gutterElement" style="height: 24px;">11</div><div class="cm-gutterElement" style="height: 24px;">12</div><div class="cm-gutterElement" style="height: 24px;">13</div><div class="cm-gutterElement" style="height: 24px;">14</div><div class="cm-gutterElement" style="height: 24px;">15</div><div class="cm-gutterElement" style="height: 24px;">16</div><div class="cm-gutterElement" style="height: 24px;">17</div><div class="cm-gutterElement" style="height: 24px;">18</div><div class="cm-gutterElement" style="height: 24px;">19</div><div class="cm-gutterElement" style="height: 24px;">20</div><div class="cm-gutterElement" style="height: 24px;">21</div><div class="cm-gutterElement" style="height: 24px;">22</div><div class="cm-gutterElement" style="height: 24px;">23</div><div class="cm-gutterElement" style="height: 24px;">24</div><div class="cm-gutterElement" style="height: 24px;">25</div><div class="cm-gutterElement" style="height: 24px;">26</div><div class="cm-gutterElement" style="height: 24px;">27</div><div class="cm-gutterElement" style="height: 24px;">28</div><div class="cm-gutterElement" style="height: 24px;">29</div><div class="cm-gutterElement" style="height: 24px;">30</div><div class="cm-gutterElement" style="height: 24px;">31</div><div class="cm-gutterElement" style="height: 24px;">32</div><div class="cm-gutterElement" style="height: 24px;">33</div><div class="cm-gutterElement" style="height: 24px;">34</div><div class="cm-gutterElement" style="height: 24px;">35</div><div class="cm-gutterElement" style="height: 24px;">36</div><div class="cm-gutterElement" style="height: 24px;">37</div><div class="cm-gutterElement" style="height: 24px;">38</div><div class="cm-gutterElement" style="height: 24px;">39</div><div class="cm-gutterElement" style="height: 24px;">40</div><div class="cm-gutterElement" style="height: 24px;">41</div><div class="cm-gutterElement" style="height: 24px;">42</div><div class="cm-gutterElement" style="height: 24px;">43</div><div class="cm-gutterElement" style="height: 24px;">44</div><div class="cm-gutterElement" style="height: 24px;">45</div><div class="cm-gutterElement" style="height: 24px;">46</div><div class="cm-gutterElement" style="height: 24px;">47</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><span title="Unfold line">›</span></div><div class="cm-gutterElement" style="height: 24px; margin-top: 72px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 24px;"></div><div class="cm-gutterElement" style="height: 24px; margin-top: 48px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 24px; margin-top: 192px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 24px; margin-top: 72px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 24px; margin-top: 168px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 24px; margin-top: 72px;"><span title="Fold line">⌄</span></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" translate="no" contenteditable="true" class="cm-content cm-lineWrapping focus-visible" style="tab-size: 4;" role="textbox" aria-multiline="true" aria-autocomplete="list" aria-expanded="false" data-focus-visible-added=""><div class="cm-line"><span class="ͼl">// @ts-check</span></div><div class="cm-line"><br></div><div class="cm-line"><span class="ͼa">const</span> <span class="ͼf">knightIsAwake</span> = <span class="ͼb">true</span>;</div><div class="cm-line"><span class="ͼa">export</span> <span class="ͼa">function</span> <span class="ͼf">canExecuteFastAttack</span>(<span class="ͼf">knightIsAwake</span>) {</div><div class="cm-activeLine cm-line"><span class="ͼa">if</span><span class="cm-matchingBracket">(</span>!knightIsAwake<span class="cm-matchingBracket">)</span></div><div class="cm-line">}</div><div class="cm-line"><br></div><div class="cm-line"><span class="ͼl">/**</span></div><div class="cm-line"><span class="ͼl"> * A useful spy captures information, which they can't do if everyone's asleep.</span></div><div class="cm-line"><span class="ͼl"> *</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} knightIsAwake</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} archerIsAwake</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} prisonerIsAwake</span></div><div class="cm-line"><span class="ͼl"> *</span></div><div class="cm-line"><span class="ͼl"> * @returns {boolean} Whether or not you can spy on someone.</span></div><div class="cm-line"><span class="ͼl"> */</span></div><div class="cm-line"><span class="ͼa">export</span> <span class="ͼa">function</span> <span class="ͼf">canSpy</span>(<span class="ͼf">knightIsAwake</span>, <span class="ͼf">archerIsAwake</span>, <span class="ͼf">prisonerIsAwake</span>) {</div><div class="cm-line">  <span class="ͼa">throw</span> <span class="ͼa">new</span> Error(<span class="ͼd">'Remove this line and implement the function'</span>);</div><div class="cm-line">}</div><div class="cm-line"><br></div><div class="cm-line"><span class="ͼl">/**</span></div><div class="cm-line"><span class="ͼl"> * You'll get caught by the archer if you signal while they're awake.</span></div><div class="cm-line"><span class="ͼl"> *</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} archerIsAwake</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} prisonerIsAwake</span></div><div class="cm-line"><span class="ͼl"> *</span></div><div class="cm-line"><span class="ͼl"> * @returns {boolean} Whether or not you can send a signal to the prisoner.</span></div><div class="cm-line"><span class="ͼl"> */</span></div><div class="cm-line"><span class="ͼa">export</span> <span class="ͼa">function</span> <span class="ͼf">canSignalPrisoner</span>(<span class="ͼf">archerIsAwake</span>, <span class="ͼf">prisonerIsAwake</span>) {</div><div class="cm-line">  <span class="ͼa">throw</span> <span class="ͼa">new</span> Error(<span class="ͼd">'Remove this line and implement the function'</span>);</div><div class="cm-line">}</div><div class="cm-line"><br></div><div class="cm-line"><span class="ͼl">/**</span></div><div class="cm-line"><span class="ͼl"> * The final stage in the plan: freeing Annalyn's best friend.</span></div><div class="cm-line"><span class="ͼl"> *</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} knightIsAwake</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} archerIsAwake</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} prisonerIsAwake</span></div><div class="cm-line"><span class="ͼl"> * @param {boolean} petDogIsPresent</span></div><div class="cm-line"><span class="ͼl"> *</span></div><div class="cm-line"><span class="ͼl"> * @returns {boolean} Whether or not you can free Annalyn's friend.</span></div><div class="cm-line"><span class="ͼl"> */</span></div><div class="cm-line"><span class="ͼa">export</span> <span class="ͼa">function</span> <span class="ͼf">canFreePrisoner</span>(</div><div class="cm-line">  <span class="ͼf">knightIsAwake</span>,</div><div class="cm-line">  <span class="ͼf">archerIsAwake</span>,</div><div class="cm-line">  <span class="ͼf">prisonerIsAwake</span>,</div><div class="cm-line">  <span class="ͼf">petDogIsPresent</span></div><div contenteditable="false" style="height: 72px;"></div></div><div class="cm-selectionLayer" aria-hidden="true"></div><div class="cm-cursorLayer" aria-hidden="true" style="animation-duration: 1200ms; animation-name: cm-blink;"><div class="cm-cursor cm-cursor-primary" style="left: 227.031px; top: 98px; height: 19px;"></div></div></div></div></div></div></div><footer class="lhs-footer"><div class="run-tests-btn"><button type="button" class="btn-enhanced btn-s"><img src="./Exercism_files/run-tests-7259457020c0ad37ed70454416e07956cb5d40cf.svg" alt="" role="presentation" class="c-icon"><span>Run Tests</span></button></div><div class="submit-btn"><button type="button" disabled="" class="btn-primary btn-s"><span>Submit</span></button></div></footer></div><div class="--split-divider"></div><div class="--split-rhs" style="min-width: 100px;"><div class="tabs"><button class="c-tab  selected" role="tab" aria-selected="true" aria-controls="panel-instructions" id="tab-instructions" tabindex="0"><img src="./Exercism_files/instructions-9600acff7c3b15930263c8cdd8c35d46960bd924.svg" alt="" role="presentation" class="c-icon"><span data-text="Instructions">Instructions</span></button><button class="c-tab " role="tab" aria-selected="false" aria-controls="panel-results" id="tab-results" tabindex="-1"><img src="./Exercism_files/test-results-5545e191cc6045b988e47e2fdfed00d72faebf4e.svg" alt="" role="presentation" class="c-icon"><span data-text="Results">Results</span></button></div><div id="panel-instructions" role="tabpanel" aria-labelledby="tab-instructions" tabindex="0" class="--tab-panel undefined"><section class="instructions-pane"><div class="c-textual-content --small"><div class="introduction"><h2>Introduction</h2><div class="content"><p>A boolean represents one of two values: <code>true</code> or <code>false</code>.
+Logical operators (<code>!</code>, <code>&amp;&amp;</code>, <code>||</code>) are typically used with boolean values and they return a boolean value.</p>
+</div></div><div class="instructions"><h2>Instructions</h2><div class="content"><p>In this exercise, you'll be implementing the quest logic for a new RPG game a friend is developing. The game's main
+character is Annalyn, a brave girl with a fierce and loyal pet dog. Unfortunately, disaster strikes, as her best friend
+was kidnapped while searching for berries in the forest. Annalyn will try to find and free her best friend, optionally
+taking her dog with her on this quest.</p>
+<p>After some time spent following her best friend's trail, she finds the camp in which her best friend is imprisoned. It
+turns out there are two kidnappers: a mighty knight and a cunning archer.</p>
+<p>Having found the kidnappers, Annalyn considers which of the following actions she can engage in:</p>
+<ul>
+<li>
+<em>Fast attack</em>: a fast attack can be made if the <strong>knight</strong> is <em><strong>sleeping</strong></em>, as it takes time for him to get his
+armor on, so he will be vulnerable.</li>
+<li>
+<em>Spy</em>: the group can be spied upon if <strong>at least one</strong> of them is <em><strong>awake</strong></em>. Otherwise, spying is a waste of time.</li>
+<li>
+<em>Signal prisoner</em>: the prisoner can be signalled using bird sounds if the <strong>prisoner</strong> is <em><strong>awake</strong></em> and the
+<strong>archer</strong> is <em><strong>sleeping</strong></em>, as archers are trained in bird signaling so they could intercept the message.</li>
+<li>
+<em>Free prisoner</em>: Annalyn can try sneaking into the camp to free the prisoner. This is a risky thing to do and can
+only succeed in one of two ways:
+<ul>
+<li>If Annalyn has her pet dog with her she can rescue the prisoner if the <strong>archer</strong> is <em><strong>asleep</strong></em>. The knight is
+scared of the dog and the archer will not have time to get ready before Annalyn and the prisoner can escape.</li>
+<li>If Annalyn does not have her dog then she and the prisoner must be very sneaky! Annalyn can free the prisoner
+if the <strong>prisoner</strong> is <em><strong>awake</strong></em> and the <strong>knight</strong> and <strong>archer</strong> are both <em><strong>sleeping</strong></em>, but if the
+<strong>prisoner</strong> is <em><strong>sleeping</strong></em> they can't be rescued: the prisoner would be startled by Annalyn's sudden
+appearance and wake up the knight and archer.</li>
+</ul>
+</li>
+</ul>
+<p>You have four tasks: to implement the logic for determining if the above actions are available based on the state of the
+three characters found in the forest and whether Annalyn's pet dog is present or not.</p>
+</div><details class="c-details task" open=""><summary class="--summary"><div class="--summary-inner"><div class="task-marker">Task 1</div><span class="summary-title">Check if the 'Fast Attack' action is possible</span><span class="--closed-icon"><img src="./Exercism_files/chevron-right-4edf20ec1116acf2e371e8ff03809451274a7b32.svg" alt="" role="presentation" class="c-icon"></span><span class="--open-icon"><img src="./Exercism_files/chevron-down-5ae28e42ee217bae38f4eb1c119cafd0301dd5f6.svg" alt="" role="presentation" class="c-icon"></span></div></summary><div><p>Implement a function named <code>canExecuteFastAttack</code> that takes a boolean value which indicates if the knight is awake.
+This function returns <code>true</code> if the 'Fast Attack' action is available based on the state of the character. Otherwise,
+returns <code>false</code>:</p>
+<pre><code class="language-javascript hljs" data-highlighted="true"><span class="hljs-keyword">const</span> knightIsAwake = <span class="hljs-literal">true</span>;
+<span class="hljs-title function_">canExecuteFastAttack</span>(knightIsAwake);
+<span class="hljs-comment">// =&gt; false</span>
+</code></pre>
+</div><div><button class="btn-default btn-s hints-btn"><span>Stuck? Reveal Hints</span><img src="./Exercism_files/modal-d86b25d9bd28d7ab6722dc92f9971124b0229797.svg" alt="Opens in a modal" class="c-icon"></button></div></details><details class="c-details task" open=""><summary class="--summary"><div class="--summary-inner"><div class="task-marker">Task 2</div><span class="summary-title">Check if the 'Spy' action is possible</span><span class="--closed-icon"><img src="./Exercism_files/chevron-right-4edf20ec1116acf2e371e8ff03809451274a7b32.svg" alt="" role="presentation" class="c-icon"></span><span class="--open-icon"><img src="./Exercism_files/chevron-down-5ae28e42ee217bae38f4eb1c119cafd0301dd5f6.svg" alt="" role="presentation" class="c-icon"></span></div></summary><div><p>Implement a function named <code>canSpy</code> that takes three boolean values, indicating if the knight, archer and the prisoner,
+respectively, are awake. The function returns <code>true</code> if the 'Spy' action is available based on the state of the
+characters. Otherwise, returns <code>false</code>:</p>
+<pre><code class="language-javascript hljs" data-highlighted="true"><span class="hljs-keyword">const</span> knightIsAwake = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">const</span> archerIsAwake = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">const</span> prisonerIsAwake = <span class="hljs-literal">false</span>;
+<span class="hljs-title function_">canSpy</span>(knightIsAwake, archerIsAwake, prisonerIsAwake);
+<span class="hljs-comment">// =&gt; true</span>
+</code></pre>
+</div><div><button class="btn-default btn-s hints-btn"><span>Stuck? Reveal Hints</span><img src="./Exercism_files/modal-d86b25d9bd28d7ab6722dc92f9971124b0229797.svg" alt="Opens in a modal" class="c-icon"></button></div></details><details class="c-details task"><summary class="--summary"><div class="--summary-inner"><div class="task-marker">Task 3</div><span class="summary-title">Check if the 'Signal Prisoner' action is possible</span><span class="--closed-icon"><img src="./Exercism_files/chevron-right-4edf20ec1116acf2e371e8ff03809451274a7b32.svg" alt="" role="presentation" class="c-icon"></span><span class="--open-icon"><img src="./Exercism_files/chevron-down-5ae28e42ee217bae38f4eb1c119cafd0301dd5f6.svg" alt="" role="presentation" class="c-icon"></span></div></summary><div><p>Implement a function named <code>canSignalPrisoner</code> that takes two boolean values, indicating if the archer and the prisoner,
+respectively, are awake. The function returns <code>true</code> if the 'Signal Prisoner' action is available based on the state of
+the characters. Otherwise, returns <code>false</code>:</p>
+<pre><code class="language-javascript hljs" data-highlighted="true"><span class="hljs-keyword">const</span> archerIsAwake = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">const</span> prisonerIsAwake = <span class="hljs-literal">true</span>;
+<span class="hljs-title function_">canSignalPrisoner</span>(archerIsAwake, prisonerIsAwake);
+<span class="hljs-comment">// =&gt; true</span>
+</code></pre>
+</div><div><button class="btn-default btn-s hints-btn"><span>Stuck? Reveal Hints</span><img src="./Exercism_files/modal-d86b25d9bd28d7ab6722dc92f9971124b0229797.svg" alt="Opens in a modal" class="c-icon"></button></div></details><details class="c-details task"><summary class="--summary"><div class="--summary-inner"><div class="task-marker">Task 4</div><span class="summary-title">Check if the 'Free Prisoner' action is possible</span><span class="--closed-icon"><img src="./Exercism_files/chevron-right-4edf20ec1116acf2e371e8ff03809451274a7b32.svg" alt="" role="presentation" class="c-icon"></span><span class="--open-icon"><img src="./Exercism_files/chevron-down-5ae28e42ee217bae38f4eb1c119cafd0301dd5f6.svg" alt="" role="presentation" class="c-icon"></span></div></summary><div><p>Implement a function named <code>canFreePrisoner</code> that takes four boolean values. The first three parameters indicate if the
+knight, archer and the prisoner, respectively, are awake. The last parameter indicates if Annalyn's pet dog is present.
+The function returns <code>true</code> if the 'Free Prisoner' action is available based on the state of the characters and
+Annalyn's pet dog presence. Otherwise, it returns <code>false</code>:</p>
+<pre><code class="language-javascript hljs" data-highlighted="true"><span class="hljs-keyword">const</span> knightIsAwake = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">const</span> archerIsAwake = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">const</span> prisonerIsAwake = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">const</span> petDogIsPresent = <span class="hljs-literal">false</span>;
+<span class="hljs-title function_">canFreePrisoner</span>(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent);
+<span class="hljs-comment">// =&gt; false</span>
+</code></pre>
+</div><div><button class="btn-default btn-s hints-btn"><span>Stuck? Reveal Hints</span><img src="./Exercism_files/modal-d86b25d9bd28d7ab6722dc92f9971124b0229797.svg" alt="Opens in a modal" class="c-icon"></button></div></details></div><div class="debug-info"><h2>How to debug</h2><div><p>When a test fails, a message is displayed describing what went wrong and for which input. You can also use the fact that any <code>console</code> output will be shown too. You can write to the console using:</p>
+<pre><code class="language-javascript hljs" data-highlighted="true"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Debug message'</span>);
+</code></pre>
+</div></div></div></section></div><div id="panel-results" role="tabpanel" aria-labelledby="tab-results" tabindex="0" class="--tab-panel undefined" style="display: none;"><section class="run-tests-prompt"><img src="./Exercism_files/run-tests-prompt-9fbfa6a34cb1bc83e8d282af23b70d391706ffa6.svg" alt="" role="presentation" class="c-icon"><h2><button class="btn-keyboard-shortcut" type="button"><span>Run tests </span></button> to check your code</h2><p>We'll run your code against tests to check whether it works, then give you the results here.</p></section></div></div></div></div></div>
+
+
+<div id="portal-container"></div>
+<div class="c-loading-overlay"></div>
+<footer id="site-footer" style="display: block;"><div class="lg-container">
+<div class="nfp mb-40 md:mb-58">
+<img role="presentation" alt="" class="c-icon" src="./Exercism_files/exercism-face-gradient-31ce1b1261c54ead735cf687a2dc8549b3d00bb1.svg">
+<h2 class="text-h2 mb-32">Help us keep Exercism free for everyone, everywhere.</h2>
+<div class="c-react-component c-react-wrapper-donations-footer-form --hydrated" data-react-donations-footer-form="true" data-react-data="{&quot;request&quot;:{&quot;endpoint&quot;:&quot;https://exercism.org/api/v2/donations/active_subscription&quot;,&quot;options&quot;:{&quot;initial_data&quot;:{&quot;subscription&quot;:null}}},&quot;user_signed_in&quot;:true,&quot;links&quot;:{&quot;settings&quot;:&quot;https://exercism.org/settings/donations&quot;}}"><form class="donations-form flex flex-col md:flex-row items-stretch"><div class="amounts mb-16 md:mb-0"><button class="btn-m selected" type="button">$16</button><button class="btn-m" type="button">$32</button><button class="btn-m" type="button">$64</button><button class="btn-m" type="button">$128</button><label class="c-faux-input"><div class="icon">$</div><input type="number" min="0" step="0.01" placeholder="Custom amount" value=""></label></div><button class="btn-m continue-btn w-100 md:w-auto md:h-auto md:ml-32"><span>Continue</span><img src="./Exercism_files/arrow-right-0f5e363467e0c55fe280b4864639a9c677afa0d2.svg" alt="" role="presentation" class="c-icon"></button></form></div>
+<h3 class="text-h4 mt-32 mb-8">Exercism is open source and 100% free.</h3>
+<p class="text-p-large">Help us provide opportunity for people of all backgrounds by helping them develop their programming skills through code practice and mentorship.</p>
+</div>
+<hr>
+<div class="site-links mt-24 md:mt-56">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-x-40">
+<div class="col">
+<h3>Editions</h3>
+<hr class="c-divider --small">
+<ul>
+<li><a href="https://exercism.org/">Exercism</a></li>
+<li><a href="https://exercism.org/docs/using/editions/teams">Exercism for Teams</a></li>
+<li><a href="https://exercism.org/docs/using/editions/research">Exercism Research</a></li>
+</ul>
+</div>
+<div class="col">
+<h3>About</h3>
+<hr class="c-divider --small">
+<ul>
+<li><a href="https://exercism.org/about">About Exercism</a></li>
+<li><a href="https://exercism.org/about/team">Our team</a></li>
+<li><a href="https://exercism.org/contributing/contributors">Contributors</a></li>
+<li><a href="https://exercism.org/about/supporters/organisations">Supporting organisations</a></li>
+<li><a href="https://exercism.org/about/supporters/individuals">Individual supporters</a></li>
+</ul>
+</div>
+<div class="col">
+<h3>Get involved</h3>
+<hr class="c-divider --small">
+<ul>
+<li><a href="https://exercism.org/contributing">Contribute</a></li>
+<li><a href="https://exercism.org/mentoring">Mentor</a></li>
+</ul>
+</div>
+<div class="col">
+<h3>Legal &amp; policies</h3>
+<hr class="c-divider --small">
+<ul>
+<li><a href="https://exercism.org/docs/using/legal/terms-of-service">Terms of usage</a></li>
+<li><a href="https://exercism.org/docs/using/legal/privacy-policy">Privacy policy</a></li>
+<li><a href="https://exercism.org/docs/using/legal/cookie-policy">Cookie policy</a></li>
+<li><a href="https://exercism.org/docs/using/legal/code-of-conduct">Code of conduct</a></li>
+<li><a href="https://exercism.org/docs/using/legal/accessibility">Accessibility statement</a></li>
+</ul>
+</div>
+<div class="col">
+<h3>Keep in touch</h3>
+<hr class="c-divider --small">
+<ul>
+<li><a href="https://exercism.org/blog">Exercism's blog</a></li>
+<li><a href="https://github.com/exercism/exercism">Discuss on GitHub</a></li>
+<li><a href="https://exercism.org/docs/using/contact">Contact us</a></li>
+<li><a href="https://exercism.org/docs/using/report-abuse">Report abuse</a></li>
+</ul>
+</div>
+<div class="col">
+<h3>Get help</h3>
+<hr class="c-divider --small">
+<ul>
+<li><a href="https://exercism.org/docs">Exercism's Docs</a></li>
+<li><a href="https://exercism.org/docs/using/getting-started">Getting started</a></li>
+<li><a href="https://exercism.org/docs/using/faqs">FAQs</a></li>
+<li><a href="https://exercism.org/docs/using/solving-exercises/working-locally">Installing the CLI</a></li>
+<li><a href="https://exercism.org/cli-walkthrough">Interactive CLI Walkthrough</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="socials mt-24 mb-40 md:mb-56">
+<a class="icon twitter" href="https://twitter.com/exercism_io"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/external-site-twitter-6717f73e3402edb200e17233edc6d9aa756d084c.svg">
+</a><a class="icon facebook" href="https://facebook.com/exercism.io"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/external-site-facebook-30d7c9862735514b98cc354bc12f460a4a40d26b.svg">
+</a><a class="icon github" href="https://github.com/exercism"><img role="presentation" alt="" class="c-icon" src="./Exercism_files/external-site-github-10a8a76f55f4e6955417df6aa374dd48fab4392b.svg">
+</a></div>
+<hr>
+<div class="tracks mt-32 md:mt-48 mb-32 md:mb-48 md:items-center">
+<div class="hidden md:block">
+<h2 class="text-h3">Our programming language tracks</h2>
+<hr class="c-divider mt-28 mb-36">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-x-32">
+<div class="col">
+<ul>
+<li><a href="https://exercism.org/tracks/abap">ABAP</a></li>
+<li><a href="https://exercism.org/tracks/bash">Bash</a></li>
+<li><a href="https://exercism.org/tracks/c">C</a></li>
+<li><a href="https://exercism.org/tracks/csharp">C#</a></li>
+<li><a href="https://exercism.org/tracks/cpp">C++</a></li>
+<li><a href="https://exercism.org/tracks/cfml">CFML</a></li>
+<li><a href="https://exercism.org/tracks/clojure">Clojure</a></li>
+<li><a href="https://exercism.org/tracks/clojurescript">ClojureScript</a></li>
+<li><a href="https://exercism.org/tracks/coffeescript">CoffeeScript</a></li>
+<li><a href="https://exercism.org/tracks/common-lisp">Common Lisp</a></li>
+<li><a href="https://exercism.org/tracks/crystal">Crystal</a></li>
+<li><a href="https://exercism.org/tracks/d">D</a></li>
+</ul>
+</div>
+<div class="col">
+<ul>
+<li><a href="https://exercism.org/tracks/dart">Dart</a></li>
+<li><a href="https://exercism.org/tracks/delphi">Delphi Pascal</a></li>
+<li><a href="https://exercism.org/tracks/elixir">Elixir</a></li>
+<li><a href="https://exercism.org/tracks/elm">Elm</a></li>
+<li><a href="https://exercism.org/tracks/emacs-lisp">Emacs Lisp</a></li>
+<li><a href="https://exercism.org/tracks/erlang">Erlang</a></li>
+<li><a href="https://exercism.org/tracks/fsharp">F#</a></li>
+<li><a href="https://exercism.org/tracks/fortran">Fortran</a></li>
+<li><a href="https://exercism.org/tracks/go">Go</a></li>
+<li><a href="https://exercism.org/tracks/groovy">Groovy</a></li>
+<li><a href="https://exercism.org/tracks/haskell">Haskell</a></li>
+<li><a href="https://exercism.org/tracks/java">Java</a></li>
+</ul>
+</div>
+<div class="col">
+<ul>
+<li><a href="https://exercism.org/tracks/javascript">JavaScript</a></li>
+<li><a href="https://exercism.org/tracks/julia">Julia</a></li>
+<li><a href="https://exercism.org/tracks/kotlin">Kotlin</a></li>
+<li><a href="https://exercism.org/tracks/lfe">LFE</a></li>
+<li><a href="https://exercism.org/tracks/lua">Lua</a></li>
+<li><a href="https://exercism.org/tracks/mips">MIPS Assembly</a></li>
+<li><a href="https://exercism.org/tracks/nim">Nim</a></li>
+<li><a href="https://exercism.org/tracks/objective-c">Objective-C</a></li>
+<li><a href="https://exercism.org/tracks/ocaml">OCaml</a></li>
+<li><a href="https://exercism.org/tracks/perl5">Perl 5</a></li>
+<li><a href="https://exercism.org/tracks/pharo-smalltalk">Pharo</a></li>
+</ul>
+</div>
+<div class="col">
+<ul>
+<li><a href="https://exercism.org/tracks/php">PHP</a></li>
+<li><a href="https://exercism.org/tracks/plsql">PL/SQL</a></li>
+<li><a href="https://exercism.org/tracks/prolog">Prolog</a></li>
+<li><a href="https://exercism.org/tracks/purescript">PureScript</a></li>
+<li><a href="https://exercism.org/tracks/python">Python</a></li>
+<li><a href="https://exercism.org/tracks/r">R</a></li>
+<li><a href="https://exercism.org/tracks/racket">Racket</a></li>
+<li><a href="https://exercism.org/tracks/raku">Raku</a></li>
+<li><a href="https://exercism.org/tracks/reasonml">ReasonML</a></li>
+<li><a href="https://exercism.org/tracks/ruby">Ruby</a></li>
+<li><a href="https://exercism.org/tracks/rust">Rust</a></li>
+</ul>
+</div>
+<div class="col">
+<ul>
+<li><a href="https://exercism.org/tracks/scala">Scala</a></li>
+<li><a href="https://exercism.org/tracks/scheme">Scheme</a></li>
+<li><a href="https://exercism.org/tracks/sml">Standard ML</a></li>
+<li><a href="https://exercism.org/tracks/swift">Swift</a></li>
+<li><a href="https://exercism.org/tracks/tcl">Tcl</a></li>
+<li><a href="https://exercism.org/tracks/typescript">TypeScript</a></li>
+<li><a href="https://exercism.org/tracks/vbnet">VB.NET</a></li>
+<li><a href="https://exercism.org/tracks/vimscript">Vim script</a></li>
+<li><a href="https://exercism.org/tracks/wasm">WebAssembly</a></li>
+<li><a href="https://exercism.org/tracks/wren">Wren</a></li>
+<li><a href="https://exercism.org/tracks/x86-64-assembly">x86-64 Assembly</a></li>
+</ul>
+</div>
+<div class="col hidden md:block mt-32 xl:mt-0">
+<h3 class="text-h6">Want to add a language track to Exercism?</h3>
+<p class="text-p-base">
+<a href="https://github.com/exercism/exercism/issues/new?title=Create%20new%20track%20for%20[LANGUAGE]">Open an issue</a>
+and let's discuss it.
+</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="legals mt-24 md:mt-32 mb-32 md:mb-40 flex md:items-center flex-col md:flex-row">
+<div class="company mb-16 md:mb-0 md:mr-32">
+Exercism is not-for-profit organisation registered in the UK with company number
+<a href="https://find-and-update.company-information.service.gov.uk/company/11733062">11733062</a>.
+Its trustees are <a href="https://www.kytrinyx.com/">Katrina Owen</a> and <a href="https://ihid.info/">Jeremy Walker</a>.
+</div>
+<div class="copyright md:ml-auto">
+© 2022 Exercism
+</div>
+</div>
+</div>
+</footer>
+<!-- Prefetch the deferred packs which are needed on other pages -->
+
+
+
+<!-- TODO: Add test for this! -->
+<div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><iframe name="__privateStripeMetricsController1630" frameborder="0" allowtransparency="true" scrolling="no" allow="payment *" src="./Exercism_files/m-outer-649431882ac2f1ed1f457f73c22ec4a1.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
