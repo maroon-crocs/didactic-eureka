@@ -32,6 +32,7 @@
     font-size: 2em;
   }
   #events-section .my-atropos.atropos-rotate-touch {
+    -ms-touch-action: auto;
     touch-action: auto;
   }
   #contact-us-section .form-wrapper {
